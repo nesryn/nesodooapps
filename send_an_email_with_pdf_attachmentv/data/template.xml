@@ -1,0 +1,30 @@
+<odoo>
+    <record id="alert_test" model="ir.cron">
+        <field name="name">send alert email</field>
+        <field name="model_id" ref="product.model_product_template"/>
+        <field name="state">code</field>
+        <field name="code">model.send_email_with_attachment()</field>
+        <field name='interval_number'>1</field>
+        <field name='interval_type'>days</field>
+        <field name="numbercall">-1</field>
+    </record>
+
+    <record id="report_template"
+            model="mail.template">
+        <field name="name">q</field>
+        <field name="model_id" ref="product.model_product_template"/>
+        <field name="auto_delete" eval="False"/>
+        <field name="active" eval="True"/>
+        <field name="lang">${user.lang}</field>
+        <field name="body_html" type="html">
+            <div style="direction:rtl !important;">
+                <span>Dear,
+Your Stock Reorder Report is attached.</span>
+
+                <br/>
+
+            </div>
+        </field>
+
+    </record>
+</odoo>
