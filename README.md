@@ -1,2 +1,0 @@
-# nesodooapps
-odooapps
